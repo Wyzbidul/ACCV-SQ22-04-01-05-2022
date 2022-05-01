@@ -1,7 +1,7 @@
 #####################################################################################################################################
 #	PROGRAM BY : MC IATRIDES
 #	LAST UPDATE : 28-04-2022
-#	TITLE : SQ22-04 - (28-04-2022)
+#	TITLE : SQ22-04 - (01-05-2022)
 #   SUBTITLE : Design of 2D scalar field visualization
 #	REDACTED FOR : ADV COURSE ON COMPUTER VISUALIZATION
 #####################################################################################################################################
@@ -40,8 +40,6 @@ for i in range(height):
                 img_scale[i,j] = [255, 0, 0]    #BGR => blue
 
 #Display the resulting image
-cv.imwrite('A.jpg',img_A)
-cv.imwrite('B.jpg',img_B)
 cv.imwrite('output_dif.jpg',img_dif)
 cv.imshow('output_dif',img_dif)
 cv.imwrite('output_scale.jpg',img_scale)
@@ -53,11 +51,7 @@ COLORS = [[255,0,0],[0,0,255]]
 legend = zeros(((len(CLASSES) * 25) + 25, 300, 3), dtype="uint8")
 # loop over the class names + colors
 for (i, (className, color)) in enumerate(zip(CLASSES, COLORS)):
-    print(i, className, color) 
-	# draw the class name + color on the legend
-    color = [int(c) for c in color]
-    cv.putText(legend, className, (5, (i * 25) + 17),cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-    cv.rectangle(legend, (100, (i * 25)), (300, (i * 25) + 25),tuple(color), -1)
+    print(i, className, color)
 
 cv.waitKey(0)
 cv.destroyAllWindows()
